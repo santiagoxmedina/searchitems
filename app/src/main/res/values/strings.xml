@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SearchItems</string>
+    <string name="search">Buscar</string>
+    <string name="enter_product_name">Ingresa el nombre del producto</string>
+</resources>
