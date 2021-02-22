@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.sanmed.searchitems.ui.main.IItemView
 import com.sanmed.searchitems.ui.main.ItemView
+import javax.inject.Inject
 
-class TestRemoteDataSource:IRemoteDataSource {
+class TestRemoteDataSource @Inject constructor():IRemoteDataSource {
 
     private val testItems = MutableLiveData<List<IItemView>>()
     private val resultItems = MutableLiveData<List<IItemView>>()

@@ -4,15 +4,17 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.sanmed.searchitems.R
 import com.sanmed.searchitems.databinding.MainFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainFragment : Fragment() {
 
 
-    private lateinit var mViewModel: MainViewModel
+    private val mViewModel by viewModels<MainViewModel>()
     private val mItemViewAdapter = createItemViewAdapter()
     private lateinit var mBinding: MainFragmentBinding
 
@@ -42,11 +44,6 @@ class MainFragment : Fragment() {
 
     private fun onSearchResult(items:List<IItemView> ) {
         mItemViewAdapter.submitList(items)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        mViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
     private fun createItemViewAdapter(): ItemViewAdapter {
