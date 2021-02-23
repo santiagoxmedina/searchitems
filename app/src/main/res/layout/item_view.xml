@@ -7,9 +7,13 @@
         <variable
             name="itemView"
             type="com.sanmed.searchitems.ui.main.IItemView" />
+        <variable
+            name="action"
+            type="com.sanmed.searchitems.ui.main.IActionWithObject&lt;com.sanmed.searchitems.ui.main.IItemView>" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:onClick="@{()->action.onAction(itemView)}"
         android:layout_height="wrap_content">
 
         <TextView

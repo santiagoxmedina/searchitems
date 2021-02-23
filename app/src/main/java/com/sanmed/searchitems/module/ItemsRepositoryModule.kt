@@ -18,6 +18,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 abstract class ItemsRepositoryModule {
 
+    @Singleton
     @Binds
     abstract fun bindIItemsRepository(iItemsRepositoryImpl: TestItemRepository):IItemsRepository
 }

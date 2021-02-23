@@ -7,13 +7,15 @@ import androidx.recyclerview.widget.ListAdapter
 import com.sanmed.searchitems.R
 import com.sanmed.searchitems.databinding.ItemViewBinding
 
-class ItemViewAdapter(diff:ItemViewDiff) : ListAdapter<IItemView?, ItemViewViewHolder>(diff) {
+class ItemViewAdapter(diff:ItemViewDiff,action:IActionWithObject<IItemView>) : ListAdapter<IItemView?, ItemViewViewHolder>(diff) {
 
+    private val mAction = action;
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewViewHolder {
         val binding = DataBindingUtil.inflate<ItemViewBinding>(
             LayoutInflater.from(parent.context),
             R.layout.item_view, parent, false)
+        binding.action = mAction
         return ItemViewViewHolder(binding)
     }
 

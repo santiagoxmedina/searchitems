@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.sanmed.searchitems.R
 import com.sanmed.searchitems.databinding.MainFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,7 +16,7 @@ class MainFragment : Fragment() {
 
 
     private val mViewModel by viewModels<MainViewModel>()
-    private val mItemViewAdapter = createItemViewAdapter()
+    private lateinit var mItemViewAdapter:ItemViewAdapter
     private lateinit var mBinding: MainFragmentBinding
 
 
@@ -35,20 +36,32 @@ class MainFragment : Fragment() {
     }
 
     private fun initView() {
+        mItemViewAdapter = createItemViewAdapter()
         mBinding.itemsRecyclerView.adapter = mItemViewAdapter
     }
 
     private fun initSubscribers() {
-        mViewModel.getItemsFromSearchResult().observe(viewLifecycleOwner,this::onSearchResult)
+        mViewModel.itemsFromSearchResult.observe(viewLifecycleOwner,this::onSearchResult)
+        mViewModel.navigateToItemDetail.observe(viewLifecycleOwner,this::onNavigateToItemDetail)
     }
 
     private fun onSearchResult(items:List<IItemView> ) {
         mItemViewAdapter.submitList(items)
     }
 
-    private fun createItemViewAdapter(): ItemViewAdapter {
-        return ItemViewAdapter(ItemViewDiff())
+    private fun onNavigateToItemDetail(id:Long ) {
+       if(id!=-1L){
+           navigateToItemDetail(id);
+           mViewModel.onNavigateToItemDetailCompleted()
+       }
     }
 
+    private fun navigateToItemDetail(id: Long) {
+        findNavController().navigate(MainFragmentDirections.actionMainFragmentToItemDetailFragment(id))
+    }
+
+    private fun createItemViewAdapter(): ItemViewAdapter {
+        return ItemViewAdapter(ItemViewDiff(),mViewModel)
+    }
 
 }

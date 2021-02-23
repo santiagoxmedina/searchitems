@@ -2,6 +2,7 @@ package com.sanmed.searchitems.ui.main
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.sanmed.searchitems.repository.IItemsRepository
@@ -11,11 +12,23 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel  @Inject constructor(private  val mRepository: IItemsRepository
-): ViewModel() {
+class MainViewModel @Inject constructor(
+    private val mRepository: IItemsRepository
+) : ViewModel(), IActionWithObject<IItemView> {
 
-    fun getItemsFromSearchResult():LiveData<List<IItemView>> {
-        return mRepository.getItemsFromSearchResult()
+    private val _navigateToItemDetail = MutableLiveData<Long>()
+    val navigateToItemDetail: LiveData<Long>
+        get() = _navigateToItemDetail
+
+    val itemsFromSearchResult: LiveData<List<IItemView>>
+        get() = mRepository.getItemsFromSearchResult()
+
+    override fun onAction(result: IItemView) {
+        _navigateToItemDetail.value = result.getId()
+    }
+
+    fun onNavigateToItemDetailCompleted() {
+        _navigateToItemDetail.value = -1
     }
 
 }
