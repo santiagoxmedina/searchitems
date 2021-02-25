@@ -1,6 +1,7 @@
 package com.sanmed.searchitems.module
 
 import com.sanmed.searchitems.datasource.IRemoteDataSource
+import com.sanmed.searchitems.datasource.MercadoLibreDataSource
 import com.sanmed.searchitems.datasource.TestRemoteDataSource
 import dagger.Binds
 import dagger.Module
@@ -13,5 +14,5 @@ import javax.inject.Singleton
 abstract class RemoteDataSourceModule {
     @Singleton
     @Binds
-    abstract fun bindIRemoteDataSource(iRemoteDataSource:TestRemoteDataSource):IRemoteDataSource
+    abstract fun bindIRemoteDataSource(iRemoteDataSource:MercadoLibreDataSource):IRemoteDataSource
 }

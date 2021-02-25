@@ -15,7 +15,7 @@ class ItemDetailViewModel @Inject constructor(
     val itemDetailView: LiveData<IItemDetailView>
         get() = mRepository.getItemsItemDetailView()
 
-    fun onItemId(id: Long) {
+    fun onItemId(id: String) {
         mRepository.loadItemDetailView(id)
     }
 }

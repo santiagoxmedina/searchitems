@@ -49,14 +49,14 @@ class MainFragment : Fragment() {
         mItemViewAdapter.submitList(items)
     }
 
-    private fun onNavigateToItemDetail(id:Long ) {
-       if(id!=-1L){
+    private fun onNavigateToItemDetail(id:String ) {
+       if(id.isNotEmpty()){
            navigateToItemDetail(id);
            mViewModel.onNavigateToItemDetailCompleted()
        }
     }
 
-    private fun navigateToItemDetail(id: Long) {
+    private fun navigateToItemDetail(id: String) {
         findNavController().navigate(MainFragmentDirections.actionMainFragmentToItemDetailFragment(id))
     }
 

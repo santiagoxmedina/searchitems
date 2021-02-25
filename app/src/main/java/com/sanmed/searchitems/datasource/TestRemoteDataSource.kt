@@ -23,7 +23,7 @@ class TestRemoteDataSource @Inject constructor() : IRemoteDataSource {
         var temp: ItemView;
         for (i in 1..10) {
             temp = ItemView()
-            temp.itemId = i.toLong()
+            temp.itemId = i.toString()
             temp.itemName = i.toString()
             result.add(temp)
         }
@@ -60,10 +60,10 @@ class TestRemoteDataSource @Inject constructor() : IRemoteDataSource {
         return testItemDetailView
     }
 
-    override fun loadItemDetail(id: Long) {
+    override fun loadItemDetail(id: String) {
         val item = ItemDetailView()
         item.itemId = id;
-        item.itemName = id.toString()
+        item.itemName = id
         testItemDetailView.value = item
     }
 }

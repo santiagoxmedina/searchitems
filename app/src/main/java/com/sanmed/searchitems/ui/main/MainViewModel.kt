@@ -16,8 +16,8 @@ class MainViewModel @Inject constructor(
     private val mRepository: IItemsRepository
 ) : ViewModel(), IActionWithObject<IItemView> {
 
-    private val _navigateToItemDetail = MutableLiveData<Long>()
-    val navigateToItemDetail: LiveData<Long>
+    private val _navigateToItemDetail = MutableLiveData<String>()
+    val navigateToItemDetail: LiveData<String>
         get() = _navigateToItemDetail
 
     val itemsFromSearchResult: LiveData<List<IItemView>>
@@ -28,7 +28,7 @@ class MainViewModel @Inject constructor(
     }
 
     fun onNavigateToItemDetailCompleted() {
-        _navigateToItemDetail.value = -1
+        _navigateToItemDetail.value = ""
     }
 
 }

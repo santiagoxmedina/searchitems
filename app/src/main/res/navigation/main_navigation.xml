@@ -20,6 +20,6 @@
         android:label="ItemDetailFragment" >
         <argument
             android:name="id"
-            app:argType="long" />
+            app:argType="string" />
     </fragment>
 </navigation>

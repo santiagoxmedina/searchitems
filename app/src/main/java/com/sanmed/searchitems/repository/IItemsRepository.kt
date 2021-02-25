@@ -8,5 +8,5 @@ interface IItemsRepository {
     fun search(query: String?)
     fun getItemsFromSearchResult(): LiveData<List<IItemView>>
     fun getItemsItemDetailView(): LiveData<IItemDetailView>
-    fun loadItemDetailView(id: Long)
+    fun loadItemDetailView(id: String)
 }

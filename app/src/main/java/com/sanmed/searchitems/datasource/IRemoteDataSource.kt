@@ -8,5 +8,5 @@ interface IRemoteDataSource {
     fun search(query: String?)
     fun getItemsFromSearchResult(): LiveData<List<IItemView>>
     fun getItemsItemDetailView(): LiveData<IItemDetailView>
-    fun loadItemDetail(id: Long)
+    fun loadItemDetail(id: String)
 }

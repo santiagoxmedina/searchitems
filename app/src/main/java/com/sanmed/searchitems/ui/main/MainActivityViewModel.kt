@@ -1,4 +1,4 @@
-package com.sanmed.searchitems
+package com.sanmed.searchitems.ui.main
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle

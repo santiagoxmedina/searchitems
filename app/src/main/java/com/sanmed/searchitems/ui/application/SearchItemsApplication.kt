@@ -1,4 +1,4 @@
-package com.sanmed.searchitems
+package com.sanmed.searchitems.ui.application
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
