@@ -65,6 +65,32 @@ class ItemViewHelper {
             }
             return result
         }
+
+         fun getItemView(itemName:String,itemId: String,itemPrice: String,itemLink: String,itemThumbnail: String): IItemView {
+            return object :IItemView{
+
+                override fun getName(): String {
+                    return itemName
+                }
+
+                override fun getId(): String {
+                    return itemId
+                }
+
+                override fun getPrice(): String {
+                    return itemPrice
+                }
+
+                override fun getLink(): String {
+                    return itemLink
+                }
+
+                override fun getThumbnail(): String {
+                    return itemThumbnail
+                }
+
+            }
+        }
     }
 
 }

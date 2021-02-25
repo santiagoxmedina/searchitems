@@ -24,8 +24,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         initNavHost()
         handleIntent(intent)
-
-
     }
 
     private fun initNavHost() {
@@ -50,13 +48,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun handleIntent(intent: Intent) {
-
         if (Intent.ACTION_SEARCH == intent.action) {
             val query = intent.getStringExtra(SearchManager.QUERY)
-            if(mNavController?.currentDestination?.id != R.id.mainFragment){
-                mNavController?.navigate(R.id.mainFragment)
-            }
+            checkMainDestination()
             mViewModel.onSearch(query)
+        }
+    }
+
+    private fun checkMainDestination() {
+        if (mNavController?.currentDestination?.id != R.id.mainFragment) {
+            mNavController?.navigate(R.id.mainFragment)
         }
     }
 }

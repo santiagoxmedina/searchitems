@@ -19,11 +19,4 @@ class MainActivityViewModel @Inject constructor(private  val mRepository: IItems
     fun onSearch(query: String?) {
         mRepository.search(query)
     }
-
-//    private fun makeNetworkRequest() {
-//        // launch a coroutine in viewModelScope
-//        viewModelScope.launch  {
-//           // mRepository.slowFetch()
-//        }
-//    }
 }

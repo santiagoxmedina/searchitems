@@ -5,9 +5,7 @@ import com.sanmed.searchitems.databinding.ItemViewBinding
 
 class ItemViewViewHolder (binding: ItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
 
-
     private val mBinding = binding;
-
 
     fun bind(itemView: IItemView?) {
         itemView.let {
