@@ -7,11 +7,11 @@
 
         <variable
             name="itemView"
-            type="com.sanmed.searchitems.ui.main.IItemView" />
+            type="com.sanmed.searchitems.view.ui.main.IItemView" />
 
         <variable
             name="action"
-            type="com.sanmed.searchitems.ui.main.IActionWithObject&lt;com.sanmed.searchitems.ui.main.IItemView>" />
+            type="com.sanmed.searchitems.view.ui.main.IActionWithObject&lt;com.sanmed.searchitems.view.ui.main.IItemView>" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

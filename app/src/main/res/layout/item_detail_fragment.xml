@@ -7,13 +7,13 @@
 
         <variable
             name="itemDetail"
-            type="com.sanmed.searchitems.ui.itemdetail.IItemDetailView" />
+            type="com.sanmed.searchitems.view.ui.itemdetail.IItemDetailView" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.itemdetail.ItemDetailFragment">
+        tools:context="com.sanmed.searchitems.view.ui.itemdetail.ItemDetailFragment">
 
         <ImageView
             android:id="@+id/thumbnail_image_view"
